@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <main id="main">
+    <p id="hex-color">
+      Hex Color Here
+    </p>
+
+    <button type="button" onclick="changeColor()">
+      Change Background
+    </button>
+
+    <a href="http://kraut.com.np">
+      Kapindra Raut
+    </a>
+  </main>
+  <style>
+    body {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    main {
+      position: relative;
+      background: green;
+      color: white;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #hex-color {
+      color: white;
+      text-shadow: 2px 2px #ff0000;
+    }
+
+    button {
+      background: white;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 20px;
+      color: #4a4a4a;
+      cursor: pointer;
+    }
+
+    a{
+      position: absolute;
+      bottom: 10px;
+      color: #fff;
+    }
+
+    button:focus {
+      outline: 0;
+    }
+
+    button:hover {
+      background: #efefef;
+    }
+  </style>
+
+  <script>
+    function generateRandomColor() {
+      // Math.floor() function for rounding values
+      // Math.random() function for generating random number
+      // 16777215 is the maximum value of a hex color : 1 less than 16^6 = 16777216 ==> 16 for hexadecimal value and 6 is total hex color length
+      var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      return randomColor;
+    }
+    function changeColor() {
+      document.getElementById("main").style.backgroundColor = generateRandomColor();
+      document.getElementById("main").style.color = generateRandomColor();
+      document.getElementById("hex-color").innerHTML = generateRandomColor();
+    }
+  </script>
+</body>
+
+</html>
